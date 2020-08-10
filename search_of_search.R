@@ -20,7 +20,9 @@ roll_data <- search_data %>%
   mutate(rollkey = rollmean(x = hits, k = 12, na.pad = TRUE,
                             align = 'right')) %>% 
   ungroup() %>% 
-  mutate(SOS = hits/rollmean)
+  mutate(SOS = hits/rollmean) %>% 
+  group_by(date) %>% 
+  mutate(SOS_per = SOS/sum(SOS))
 
-ggplot(data = roll_data, aes(x = date, y = SOS, fill = keyword)) +
+ggplot(data = roll_data, aes(x = date, y = SOS_per, fill = keyword)) +
   geom_area()
