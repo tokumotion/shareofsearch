@@ -25,4 +25,8 @@ roll_data <- search_data %>%
   mutate(SOS_per = SOS/sum(SOS))
 
 ggplot(data = roll_data, aes(x = date, y = SOS_per, fill = keyword)) +
-  geom_area()
+  geom_area() + scale_y_continuous(labels = percent) + 
+  scale_fill_discrete(name = "Marca", labels = c('Makro', "Metro", 'Plaza Vea',
+                                                 'Tottus', 'Wong')) +
+  ylab('Search of Search (%)') + xlab('Fecha') +
+  ggtitle('Evolutivo Share of Search (%)')
