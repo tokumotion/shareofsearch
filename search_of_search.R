@@ -22,7 +22,9 @@ roll_data <- search_data %>%
   ungroup() %>% 
   mutate(SOS = hits/rollmean) %>% 
   group_by(date) %>% 
-  mutate(SOS_per = SOS/sum(SOS))
+  mutate(SOS_per = SOS/sum(SOS)) %>% 
+  ungroup() %>% 
+  filter(date >= "2017-01-01")
 
 ggplot(data = roll_data, aes(x = date, y = SOS_per, fill = keyword)) +
   geom_area() + scale_y_continuous(labels = percent) + 
