@@ -1,6 +1,6 @@
 #### Share of Search ####
 library(gtrendsR); library(tidyverse); library(ggplot2); library(scales)
-library(ggthemes); library(magrittr); library(zoo)
+library(ggthemes); library(magrittr); library(zoo); library(broom)
 
 search_data <- gtrends(keyword = c('metro', 'wong', 'plaza vea', 'tottus', 
                                    'makro'),
@@ -32,3 +32,11 @@ ggplot(data = roll_data, aes(x = date, y = SOS_per, fill = keyword)) +
                                                  'Tottus', 'Wong')) +
   ylab('Search of Search (%)') + xlab('Fecha') +
   ggtitle('Evolutivo Share of Search (%) - Supermercados')
+
+# Test for normality
+roll_data %>% 
+  group_by(keyword) %>% 
+  do(tidy(shapiro.test(.$SOS_per))) %>% 
+  ungroup() %>% 
+  select(-method)
+# Results are not normal, can't run lm() without normalizing data
