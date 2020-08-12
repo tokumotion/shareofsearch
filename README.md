@@ -24,3 +24,6 @@ Anyone willing to expand this script into a bigger project is welcome to fork it
 - ggthemes
 
 Any issues with the script, please contact me at [@tokumotion](https://twitter.com/Tokumotion)
+
+#### On backlog:
+- Creating a wrapper function for running SOS analysis.
