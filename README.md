@@ -1,19 +1,21 @@
 # Measure your share of search (SoS)
 
-This small script will help you calculate SoS of your brand. This script follows James Hankins (@JCPHankins) methodology on the subject.
+This small script will help you calculate SoS of your brand. This script follows James Hankins ([@JCPHankins](https://twitter.com/JCPHankins)) methodology on the subject.
 Further research and methodology improvements will follow. This project may render an R package for practitioners for work with in the future.
 
-Bibliography: https://theeqplanner.wordpress.com/2020/08/07/the-most-important-metric-youve-never-heard-of/
+<b>Bibliography:</b> https://theeqplanner.wordpress.com/2020/08/07/the-most-important-metric-youve-never-heard-of/
 
-Anyone willing to expand this scipt into a bigger project is welcome to fork it.
+Anyone willing to expand this script into a bigger project is welcome to fork it.
 
-Libraries required:
-Tidyverse
-gtrendsR
-zoo
-ggplot2
-maggritr
+#### Libraries required:
+- tidyverse
+- gtrendsR
+- zoo
+- ggplot2
+- maggritr
 
-Optional libraries:
-scales
-ggthemes
+#### Optional libraries (for beautifying purposes):
+- scales
+- ggthemes
+
+Any issues with the script, please contact me at [@tokumotion](https://twitter.com/Tokumotion)
