@@ -1,4 +1,4 @@
-# Measure your share of search (SoS)
+# Measure your brand's share of search (SoS)
 
 This small script will help you calculate monthly SoS of your brand. This script follows James Hankins ([@JCPHankins](https://twitter.com/JCPHankins)) methodology on the subject.
 
