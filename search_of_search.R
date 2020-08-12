@@ -27,8 +27,8 @@ roll_data <- search_data %>%
   filter(date >= "2017-01-01")
 
 ggplot(data = roll_data, aes(x = date, y = SOS_per, fill = keyword)) +
-  geom_area() + scale_y_continuous(labels = percent) + 
+  geom_area(color = 'white') + scale_y_continuous(labels = percent) + 
   scale_fill_discrete(name = "Marca", labels = c('Makro', "Metro", 'Plaza Vea',
                                                  'Tottus', 'Wong')) +
   ylab('Search of Search (%)') + xlab('Fecha') +
-  ggtitle('Evolutivo Share of Search (%)')
+  ggtitle('Evolutivo Share of Search (%) - Supermercados')
