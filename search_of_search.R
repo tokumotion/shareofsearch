@@ -88,4 +88,5 @@ roll_data %>%
   do(tidy(shapiro.test(.$SOS_per))) %>% 
   ungroup() %>% 
   select(-method)
+
 # Results are not normal, can't run lm() without normalizing data

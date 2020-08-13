@@ -6,7 +6,7 @@ Now you can use function <code>sos(data_search, initial_period, final_period)</c
 
 The output of the script is a dataframe with the expected values of you share of search and a graphic that looks like this.
 
-![Evolutivo SOS Supermercados](https://i.ibb.co/bLgfLq4/Rplot03.png)
+![Evolutivo SOS Supermercados](https://i.ibb.co/bJfHYvz/Rplot.png)
 
 Further research and methodology improvements will follow. This project may render an R package for practitioners for work with in the future.
 
