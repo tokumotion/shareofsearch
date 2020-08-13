@@ -30,3 +30,4 @@ Any issues with the script, please contact me at [@tokumotion](https://twitter.c
 
 #### On backlog
 - Integrate library <code>CausalImpact</code> to measure the impact of marketing actions on share of search.
+- Make the SoS analysis available for more than 5 keywords.
