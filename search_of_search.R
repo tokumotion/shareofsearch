@@ -3,13 +3,21 @@ library(gtrendsR); library(tidyverse); library(ggplot2); library(scales)
 library(ggthemes); library(magrittr); library(zoo); library(broom)
 
 # Get the data from Google Trends, currently Trends is limited to 5 search terms
-# at the time. Remember this returnS MONTHLY DATA.
-search_data <- gtrends(keyword = c('metro', 'wong', 'plaza vea', 'tottus', 
+# at the time, for additional brands to measure, you need to run gtrends() with 
+# the biggest brand and the reminaing set of brands.. 
+# Remember this returns MONTHLY DATA.
+search_data1 <- gtrends(keyword = c('metro', 'wong', 'plaza vea', 'tottus', 
                                    'makro'),
         geo = 'PE', time = 'all', gprop = 'web')
+search_data2 <- gtrends(keyword = c('plaza vea', 'mass', 'vivanda'),
+                       geo = 'PE', time = 'all', gprop = 'web')
 
 # gtrendsR returns a list, you need a data frame (interest_over_time)
-search_data <- search_data$interest_over_time
+search_data1 <- search_data1$interest_over_time
+search_data2 <- search_data2$interest_over_time
+
+# Unite both data frames
+search_data <- union(x = search_data1, y = search_data2)
 
 # Change the class of the hits data and change all NAs to 0
 search_data$hits <- as.numeric(search_data$hits)
@@ -67,10 +75,12 @@ sos_data <- sos(search_data = search_data, initial_period = "2017-01-01")
 # You can use ggplot2 to see how your brand's category evolved
 ggplot(data = sos_data, aes(x = date, y = SOS_per, fill = keyword)) +
   geom_area(color = 'white') + scale_y_continuous(labels = percent) + 
-  scale_fill_discrete(name = "Marca", labels = c('Makro', "Metro", 'Plaza Vea',
-                                                 'Tottus', 'Wong')) +
-  ylab('Search of Search (%)') + xlab('Fecha') +
-  ggtitle('Evolutivo Share of Search (%) - Supermercados')
+  theme_clean() +
+  scale_fill_discrete(name = "Brands", 
+                      labels = c('Makro', 'Mass', "Metro", 'Plaza Vea', 
+                                 'Tottus', 'Vivanda', 'Wong')) +
+  ylab('Search of Search (%)') + xlab('Date') +
+  ggtitle('Evolution of Share of Search (%) - Supermarkets') 
 
 # Furher development: Test for normality
 roll_data %>% 
