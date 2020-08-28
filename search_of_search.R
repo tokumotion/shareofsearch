@@ -83,7 +83,7 @@ ggplot(data = sos_data, aes(x = date, y = SOS_per, fill = keyword)) +
   ggtitle('Evolution of Share of Search (%) - Supermarkets') 
 
 # Furher development: Test for normality
-roll_data %>% 
+sos_data %>% 
   group_by(keyword) %>% 
   do(tidy(shapiro.test(.$SOS_per))) %>% 
   ungroup() %>% 
