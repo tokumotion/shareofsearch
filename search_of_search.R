@@ -16,6 +16,10 @@ search_data2 <- gtrends(keyword = c('plaza vea', 'mass', 'vivanda'),
 search_data1 <- search_data1$interest_over_time
 search_data2 <- search_data2$interest_over_time
 
+# standarize the data class of search_data$hits
+search_data1$hits <- as.character(search_data1$hits)
+search_data2$hits <- as.character(search_data2$hits)
+
 # Unite both data frames
 search_data <- union(x = search_data1, y = search_data2)
 
